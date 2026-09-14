@@ -1,0 +1,51 @@
+{
+  "name": "sibrik-generation-studio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A local video-generation service with transactional credit holds and settlements.",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:api": "tsx watch src/server/main.ts",
+    "dev:web": "vite --host 127.0.0.1",
+    "build": "npm run typecheck && vite build && tsc -p tsconfig.server.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.server.json",
+    "start": "node dist/server/main.js",
+    "worker": "node dist/server/worker-main.js",
+    "db:migrate": "tsx src/server/migrate.ts",
+    "test": "node scripts/test.mjs",
+    "test:run": "vitest run",
+    "fixtures": "node scripts/create-fixtures.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prebuild": "node --input-type=module -e \"import { rmSync } from 'node:fs'; rmSync('dist', { recursive: true, force: true });\""
+  },
+  "dependencies": {
+    "@fastify/rate-limit": "^10.3.0",
+    "@fastify/static": "^10.1.3",
+    "fastify": "^5.12.4",
+    "lucide-react": "^1.45.0",
+    "pg": "^8.23.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zod": "^4.6.4"
+  },
+  "devDependencies": {
+    "@ffprobe-installer/ffprobe": "^2.1.2",
+    "@types/node": "^24.13.4",
+    "@types/pg": "^8.23.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "embedded-postgres": "^17.10.0-beta.17",
+    "ffmpeg-static": "^5.3.0",
+    "prettier": "^3.9.6",
+    "tsx": "^4.23.13",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.6",
+    "vitest": "^4.1.11"
+  }
+}

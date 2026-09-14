@@ -1,0 +1,7 @@
+node_modules
+dist
+.local
+storage
+package-lock.json
+docs/screenshots
+public/demo
