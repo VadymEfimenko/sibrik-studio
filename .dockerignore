@@ -1,0 +1,12 @@
+node_modules
+.git
+.env
+.env.*
+!.env.example
+.local
+storage
+dist
+coverage
+docs/screenshots
+*.log
+/HANDOFF.md

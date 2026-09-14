@@ -1,0 +1,67 @@
+name: sibrik-studio
+x-app: &app
+  build:
+    context: .
+    target: runtime
+  image: sibrik-studio:local
+  init: false
+  restart: unless-stopped
+  stop_grace_period: 3m
+  environment: &environment
+    DATABASE_URL: postgres://studio:local_development@db:5432/studio
+    PROVIDER_MODE: ${PROVIDER_MODE:-mock}
+    APIMART_API_KEY: ${APIMART_API_KEY:-}
+    APIMART_BASE_URL: ${APIMART_BASE_URL:-https://api.apimart.ai}
+    WEBHOOK_BASE_URL: ${WEBHOOK_BASE_URL:-}
+    MEDIA_BASE_URL: ${MEDIA_BASE_URL:-}
+    INITIAL_CREDITS: ${INITIAL_CREDITS:-100}
+    CREDITS_PER_SECOND: ${CREDITS_PER_SECOND:-2.85}
+    JOB_TIMEOUT_SECONDS: ${JOB_TIMEOUT_SECONDS:-1200}
+    PROVIDER_HTTP_TIMEOUT_SECONDS: ${PROVIDER_HTTP_TIMEOUT_SECONDS:-30}
+    WORKER_CONCURRENCY: ${WORKER_CONCURRENCY:-2}
+    WORKER_EMBEDDED: 'false'
+    LOG_LEVEL: ${LOG_LEVEL:-info}
+  volumes:
+    - videos:/app/storage
+  depends_on:
+    db:
+      condition: service_healthy
+
+services:
+  db:
+    image: postgres:17-bookworm
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: studio
+      POSTGRES_USER: studio
+      POSTGRES_PASSWORD: local_development
+    volumes:
+      - database:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U studio -d studio']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  api:
+    <<: *app
+    ports:
+      - '127.0.0.1:${PORT:-3000}:3000'
+      - '127.0.0.1:${CALLBACK_PORT:-3001}:3001'
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+  worker:
+    <<: *app
+    command: ['node', 'dist/server/worker-main.js']
+
+volumes:
+  database:
+  videos:

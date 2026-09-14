@@ -1,0 +1,39 @@
+# Run with: docker compose -f compose.yaml -f compose.dev.yaml up --build
+x-development: &development
+  build:
+    context: .
+    target: development
+  image: sibrik-studio:dev
+  environment:
+    NODE_ENV: development
+    # File notifications can be unreliable across Docker Desktop/VM mounts.
+    CHOKIDAR_USEPOLLING: 'true'
+    CHOKIDAR_INTERVAL: '300'
+  volumes:
+    - ./src:/app/src:ro
+    - ./public:/app/public:ro
+    - ./index.html:/app/index.html:ro
+    - ./vite.config.ts:/app/vite.config.ts:ro
+    - ./tsconfig.json:/app/tsconfig.json:ro
+    - ./tsconfig.server.json:/app/tsconfig.server.json:ro
+
+services:
+  api:
+    <<: *development
+    command: ['node', 'node_modules/tsx/dist/cli.mjs', 'watch', 'src/server/main.ts']
+  worker:
+    <<: *development
+    command: ['node', 'node_modules/tsx/dist/cli.mjs', 'watch', 'src/server/worker-main.ts']
+  web:
+    <<: *development
+    restart: unless-stopped
+    command: ['node', 'node_modules/vite/bin/vite.js', '--host', '0.0.0.0']
+    environment:
+      NODE_ENV: development
+      CHOKIDAR_USEPOLLING: 'true'
+      API_PROXY_TARGET: http://api:3000
+    ports:
+      - '127.0.0.1:${WEB_PORT:-5173}:5173'
+    depends_on:
+      api:
+        condition: service_healthy
