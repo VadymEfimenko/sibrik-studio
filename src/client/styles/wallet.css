@@ -1,0 +1,39 @@
+.wallet-summary {
+  display: flex;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: #181b1c;
+  padding: 21px 25px;
+  margin-bottom: 29px;
+}
+.wallet-summary > div {
+  flex: 1;
+}
+.wallet-summary > div + div {
+  border-left: 1px solid #323731;
+  padding-left: 25px;
+}
+.wallet-summary > div > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #8e9892;
+  font-size: 10px;
+  margin-bottom: 8px;
+}
+.wallet-summary strong {
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: -0.7px;
+  font-variant-numeric: tabular-nums;
+}
+.wallet-summary > div:first-child strong {
+  color: var(--green);
+}
+.wallet-summary small {
+  margin-left: 7px;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: #7e887f;
+}

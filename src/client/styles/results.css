@@ -1,0 +1,162 @@
+.results-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.results-heading h2 {
+  font-size: 16px;
+}
+.results-heading h2 > span {
+  font-size: 10px;
+  background: #272c2b;
+  color: #9faa9f;
+  border: 1px solid #353c37;
+  border-radius: 5px;
+  padding: 2px 6px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.auto-update {
+  display: flex;
+  gap: 5px;
+  color: #69766a;
+  font-size: 9px;
+  align-items: center;
+}
+.tabs {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 18px;
+}
+.tabs button {
+  border: 0;
+  border-bottom: 2px solid transparent;
+  padding: 0 0 12px;
+  background: none;
+  color: #939992;
+  font-size: 11px;
+}
+.tabs button.current {
+  color: var(--green);
+  border-color: var(--green);
+}
+.empty-state {
+  min-height: 434px;
+  border: 1px dashed #303933;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(ellipse at 50% 35%, #1b2119, transparent 66%);
+  padding: 40px 30px;
+}
+.empty-art {
+  position: relative;
+  width: 145px;
+  height: 109px;
+  margin-bottom: 30px;
+}
+.frame-back {
+  width: 99px;
+  height: 74px;
+  position: absolute;
+  left: 13px;
+  top: 5px;
+  transform: rotate(-12deg);
+  border: 1px solid #3f5134;
+  border-radius: 7px;
+  background: #1c241a;
+}
+.frame-front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 104px;
+  height: 77px;
+  position: absolute;
+  left: 29px;
+  top: 21px;
+  transform: rotate(5deg);
+  border: 1px solid #658447;
+  border-radius: 7px;
+  background: linear-gradient(140deg, #2a3622, #1d241a);
+  color: #a8cf76;
+  box-shadow: 0 8px 28px #0004;
+}
+.frame-front span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 1px;
+  background: #719252;
+  bottom: 7px;
+}
+.frame-front span:nth-child(2) {
+  left: 10px;
+}
+.frame-front span:nth-child(3) {
+  left: 18px;
+}
+.frame-front span:nth-child(4) {
+  left: 26px;
+}
+.empty-spark {
+  position: absolute;
+  right: 0;
+  top: 2px;
+  color: #b6f459;
+}
+.empty-kicker {
+  font-size: 8px;
+  letter-spacing: 1.8px;
+  color: #7a9570;
+  margin-bottom: 12px;
+}
+.empty-state h3 {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+.empty-state p {
+  font-size: 12px;
+  color: #808d81;
+  max-width: 295px;
+  line-height: 1.85;
+  margin-top: 12px;
+}
+.empty-spec {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 8px;
+  letter-spacing: 0.8px;
+  color: #5d705f;
+  margin-top: 29px;
+}
+.empty-spec i {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #63805c;
+}
+.demo-caption {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 16px 4px;
+  color: #727e87;
+}
+.demo-caption svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #839bb4;
+}
+.demo-caption p {
+  font-size: 10px;
+  line-height: 1.7;
+  max-width: 500px;
+}

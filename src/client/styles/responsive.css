@@ -1,0 +1,293 @@
+@media (min-width: 1550px) {
+  .job-card {
+    display: grid;
+    grid-template-columns: 43% minmax(0, 1fr);
+  }
+  .job-preview {
+    height: 100%;
+    min-height: 235px;
+    aspect-ratio: auto;
+  }
+  .job-body {
+    padding: 18px;
+  }
+  .studio-grid {
+    grid-template-columns: 390px minmax(0, 1fr);
+  }
+}
+@media (max-width: 1150px) {
+  .topbar {
+    padding: 0 28px;
+  }
+  main {
+    padding: 32px 28px 0;
+  }
+  .studio-grid {
+    grid-template-columns: 340px minmax(0, 1fr);
+    gap: 22px;
+  }
+  .composer {
+    padding: 20px;
+  }
+  .text-to-video {
+    font-size: 7px;
+  }
+  .wallet-summary {
+    padding: 18px;
+  }
+  .wallet-summary > div + div {
+    padding-left: 15px;
+  }
+  .wallet-summary strong {
+    font-size: 21px;
+  }
+  .wallet-summary small {
+    margin-left: 4px;
+  }
+  .auto-update {
+    display: none;
+  }
+  .empty-state h3 {
+    font-size: 17px;
+  }
+  th,
+  td {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+@media (max-width: 900px) {
+  .rail {
+    width: 58px;
+  }
+  .workspace {
+    margin-left: 58px;
+  }
+  .rail-link {
+    height: 38px;
+    width: 38px;
+  }
+  .topbar {
+    height: 70px;
+    padding: 0 23px;
+  }
+  main {
+    padding: 28px 23px 0;
+  }
+  .topbar-right {
+    gap: 14px;
+  }
+  .connection {
+    display: none;
+  }
+  .studio-grid {
+    grid-template-columns: 315px minmax(0, 1fr);
+    gap: 18px;
+  }
+  .composer {
+    padding: 18px;
+  }
+  .text-to-video {
+    display: none;
+  }
+  .wallet-summary {
+    padding: 17px 13px;
+  }
+  .wallet-summary > div + div {
+    padding-left: 10px;
+  }
+  .wallet-summary strong {
+    font-size: 19px;
+  }
+  .wallet-summary small {
+    display: none;
+  }
+  .wallet-summary > div > span {
+    font-size: 9px;
+  }
+  .empty-state {
+    padding: 24px 17px;
+  }
+  .empty-state p {
+    font-size: 11px;
+  }
+  .job-body {
+    padding: 15px;
+  }
+  .job-time {
+    font-size: 8px;
+  }
+  .job-finance {
+    gap: 7px;
+  }
+  .mode-pill {
+    font-size: 10px;
+  }
+  .page-heading {
+    margin-bottom: 26px;
+  }
+  h1 {
+    font-size: 34px;
+  }
+}
+@media (max-width: 740px) {
+  .rail {
+    display: none;
+  }
+  .workspace {
+    margin: 0;
+  }
+  .topbar {
+    padding: 0 19px;
+    height: 66px;
+  }
+  .topbar-right {
+    gap: 12px;
+  }
+  .balance-pill {
+    font-size: 12px;
+    padding: 7px 9px;
+  }
+  .balance-pill small {
+    display: none;
+  }
+  .avatar {
+    width: 28px;
+    height: 28px;
+  }
+  .wordmark {
+    font-size: 18px;
+  }
+  .wordmark span {
+    font-size: 11px;
+  }
+  .page-heading {
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .mode-pill {
+    margin-top: 20px;
+    padding: 7px 9px;
+    font-size: 9px;
+  }
+  .mode-pill svg:last-child {
+    display: none;
+  }
+  .eyebrow {
+    font-size: 8px;
+    letter-spacing: 1.6px;
+  }
+  main {
+    padding: 28px 19px 0;
+  }
+  .page-heading p {
+    font-size: 11px;
+  }
+  h1 {
+    font-size: 32px;
+  }
+  .studio-grid {
+    grid-template-columns: 1fr;
+    gap: 27px;
+  }
+  .composer {
+    padding: 21px;
+  }
+  .text-to-video {
+    display: inline;
+  }
+  .composer-title h2 {
+    font-size: 15px;
+  }
+  .model-choice {
+    margin-bottom: 21px;
+  }
+  textarea {
+    height: 155px;
+    font-size: 13px;
+  }
+  .examples button {
+    font-size: 10px;
+  }
+  .wallet-summary {
+    padding: 20px 23px;
+    margin-bottom: 25px;
+  }
+  .wallet-summary > div + div {
+    padding-left: 24px;
+  }
+  .wallet-summary strong {
+    font-size: 24px;
+  }
+  .wallet-summary small {
+    display: inline;
+  }
+  .wallet-summary > div > span {
+    font-size: 10px;
+  }
+  .empty-state {
+    min-height: 350px;
+  }
+  .empty-state h3 {
+    font-size: 20px;
+  }
+  .empty-state p {
+    font-size: 12px;
+  }
+  .job-preview {
+    aspect-ratio: 16/9;
+  }
+  .job-body {
+    padding: 18px;
+  }
+  .job-time {
+    font-size: 9px;
+  }
+  .ledger-section {
+    margin-top: 29px;
+  }
+  .ledger-heading {
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .ledger-heading h2 {
+    font-size: 15px;
+  }
+  .ledger-heading p {
+    font-size: 10px;
+    line-height: 1.6;
+    max-width: 240px;
+  }
+  .ledger-count {
+    white-space: nowrap;
+    font-size: 9px;
+  }
+  .footer {
+    margin-top: 26px;
+    font-size: 8px;
+  }
+  .footer > span:nth-child(2) {
+    display: none;
+  }
+  .job-list {
+    max-height: none;
+  }
+  .toast {
+    width: max-content;
+    padding: 13px;
+    font-size: 10px;
+    bottom: 14px;
+  }
+  .info-dialog {
+    padding: 25px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
