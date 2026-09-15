@@ -59,7 +59,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env) {
     mediaBase: mediaBase.replace(/\/$/, ''),
     port: integer(env, 'PORT', 3000, 1024, 65535),
     callbackPort: integer(env, 'CALLBACK_PORT', 3001, 1024, 65535),
-    initialMilli: creditsToMilli(env.INITIAL_CREDITS || '100'),
+    initialMilli: creditsToMilli(env.INITIAL_CREDITS || '300'),
     rateMilli: creditsToMilli(env.CREDITS_PER_SECOND || '2.85'),
     timeoutSeconds: integer(env, 'JOB_TIMEOUT_SECONDS', 1200, 30, 86400),
     httpTimeoutMs: integer(env, 'PROVIDER_HTTP_TIMEOUT_SECONDS', 30, 1, 120) * 1000,

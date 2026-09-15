@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS mock_provider_tasks (
 
 export async function migrate(
   pool: Database,
-  initialMilli = 100000,
+  initialMilli = 300000,
   rateMilli = 2850,
 ): Promise<void> {
   await transaction(pool, async (tx) => {
